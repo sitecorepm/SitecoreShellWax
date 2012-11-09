@@ -1,0 +1,47 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Shell Wax</PackageName>
+      <Author>Paul Martin</Author>
+      <Version>1.0</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme>Configuring the "Task Schedule Field Editor":
+1. Change the field type of the "Schedule" field on the template "/sitecore/templates/System/Tasks/Schedule" from "text" to "IFrame"
+2. In the field source enter: "/sitecore modules/shell/editors/TaskSchedule/TaskSchedule.aspx?field=Schedule"
+3. On the /sitecore/templates/System/Tasks/Schedule/Data/Schedule item, select View--&gt;Standard Fields
+4. Goto the "Style" field in the "Appearance" section and add this value: "height:250px"</Readme>
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/sitecore modules/Shell/Editors/TaskSchedule/jquery-ui-timepicker-addon.js</x-item>
+        <x-item>/sitecore modules/Shell/Editors/TaskSchedule/TaskSchedule.aspx</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms />
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
