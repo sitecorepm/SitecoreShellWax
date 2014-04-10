@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.SharedSource.ShellWax", "Sitecore.SharedSource.ShellWax\Sitecore.SharedSource.ShellWax.csproj", "{95193B2F-5DF7-4D86-9582-F135B003C6A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.SharedSource.ShellWax.Web", "Website\Sitecore.SharedSource.ShellWax.Web.csproj", "{B7F70D80-151F-4BAA-8448-0227E9FDB355}"
