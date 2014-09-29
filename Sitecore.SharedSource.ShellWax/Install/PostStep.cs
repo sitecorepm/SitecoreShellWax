@@ -20,12 +20,19 @@ namespace Sitecore.SharedSource.ShellWax.Install
             Assert.ArgumentNotNull(output, "output");
             Assert.ArgumentNotNull(metaData, "metaData");
 
+            ConfigureShellWax(output, "master");
+            ConfigureShellWax(output, "core");
+        }
+
+
+        private void ConfigureShellWax(ITaskOutput output, string database)
+        {
             using (new SecurityDisabler())
             {
-                var masterdb = Factory.GetDatabase("master", false);
-                if (masterdb == null)
+                var currentdb = Factory.GetDatabase(database, false);
+                if (currentdb == null)
                 {
-                    output.Alert("Database 'master' not found. ShellWax auto-configuration will not be executed.");
+                    output.Alert(string.Format("Database '{0}' not found. ShellWax auto-configuration will not be executed.", database));
                 }
                 else
                 {
@@ -34,7 +41,7 @@ namespace Sitecore.SharedSource.ShellWax.Install
                     //2. In the field source enter: "/sitecore modules/shell/editors/TaskSchedule/TaskSchedule.aspx?field=Schedule"
                     //3. On the /sitecore/templates/System/Tasks/Schedule/Data/Schedule item, select View-->Standard Fields
                     //4. Goto the "Style" field in the "Appearance" section and add this value: "height:250px"
-                    var scheduleTemplate = masterdb.GetTemplate("System/Tasks/Schedule");
+                    var scheduleTemplate = currentdb.GetTemplate("System/Tasks/Schedule");
                     var scheduleField = scheduleTemplate.GetField("Schedule");
 
                     scheduleField.BeginEdit();
@@ -42,7 +49,7 @@ namespace Sitecore.SharedSource.ShellWax.Install
                     {
                         scheduleField.Type = "IFrame";
                         scheduleField.Source = "/sitecore modules/shell/editors/TaskSchedule/TaskSchedule.aspx?field=Schedule";
-                        scheduleField.Style = "height:250px";
+                        scheduleField.Style = "height:300px";
                         scheduleField.EndEdit();
                         output.Alert("'Task Schedule Field Editor' configured successfully.");
                     }
@@ -71,9 +78,9 @@ namespace Sitecore.SharedSource.ShellWax.Install
                         scheduleTemplate.InnerItem.Editing.CancelEdit();
                         output.Alert(string.Format("Task 'Execute Now!' configuration failed. Exception details: {0}", exception.ToString()));
                     }
-
                 }
             }
         }
+    
     }
 }

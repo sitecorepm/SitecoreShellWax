@@ -15,6 +15,14 @@
                 Database db = Factory.GetDatabase("master");
                 _contextItem = db.GetItem(Request.Params["id"]);
             }
+
+            if (_contextItem == null)
+            {
+                // if we couldnt find it in master check core                
+                Database db = Factory.GetDatabase("core");
+                _contextItem = db.GetItem(Request.Params["id"]);
+            }
+            
             return _contextItem;
         }
     }
