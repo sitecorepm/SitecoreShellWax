@@ -12,7 +12,7 @@
         {
             if (_contextItem == null)
             {
-                Database db = Factory.GetDatabase("master");
+                Database db = Sitecore.Context.Database;
                 _contextItem = db.GetItem(Request.Params["id"]);
             }
             return _contextItem;
