@@ -37,10 +37,10 @@
         //this.AddHeaderJsLink("~/sc_scripts/jquery-1.3.2.min.js");
         var recurrence = new Sitecore.Tasks.Recurrence(this.ContextItem["Schedule"]);
 
-        dtStartDate.Value = recurrence.StartDate.ToString("MM/dd/yyyy");
-        dtStartTime.Value = recurrence.StartDate.ToString("HH:mm");
-        dtEndDate.Value = recurrence.EndDate.ToString("MM/dd/yyyy");
-        dtEndTime.Value = recurrence.EndDate.ToString("HH:mm");
+        dtStartDate.Value = recurrence.StartDate.ToString("MM'/'dd'/'yyyy");
+        dtStartTime.Value = recurrence.StartDate.ToString("HH':'mm");
+        dtEndDate.Value = recurrence.EndDate.ToString("MM'/'dd'/'yyyy");
+        dtEndTime.Value = recurrence.EndDate.ToString("HH':'mm");
 
         dayS.Checked = IsMatch(recurrence.Days, Sitecore.DaysOfWeek.Sunday);
         dayM.Checked = IsMatch(recurrence.Days, Sitecore.DaysOfWeek.Monday);
