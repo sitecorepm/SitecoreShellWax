@@ -3,14 +3,18 @@
     <metadata>
       <PackageName>Sitecore Shell Wax</PackageName>
       <Author>Paul Martin</Author>
-      <Version>1.1</Version>
+      <Version>1.4</Version>
       <Revision />
       <License />
-      <Comment>1.1 - "Execute Now!" schedule ribbon
+      <Comment>1.4 - Bug Fix #2
+1.2 - Added package post step to perform configuration steps
+1.1 - "Execute Now!" schedule ribbon
 1.0 - Task Schedule Field Editor
 </Comment>
       <Attributes />
-      <Readme>Configuring the "Task Schedule Field Editor":
+      <Readme>These steps will be automatically performed by the installation post step...
+
+Configuring the "Task Schedule Field Editor":
 1. Change the field type of the "Schedule" field on the template "/sitecore/templates/System/Tasks/Schedule" from "text" to "IFrame"
 2. In the field source enter: "/sitecore modules/shell/editors/TaskSchedule/TaskSchedule.aspx?field=Schedule"
 3. On the /sitecore/templates/System/Tasks/Schedule/Data/Schedule item, select View--&gt;Standard Fields
@@ -21,7 +25,7 @@ Configuring the "Execute Now!" ribbon:
 2. In the "Configure" tab, click the "Contextual Tab" button in the "Appearance" chunk
 3. Choose: /content/Applications/Content Editor/Ribbons/Contextual Ribbons/Schedules</Readme>
       <Publisher />
-      <PostStep />
+      <PostStep>Sitecore.SharedSource.ShellWax.Install.PostStep, Sitecore.SharedSource.ShellWax</PostStep>
       <PackageID />
     </metadata>
   </Metadata>
